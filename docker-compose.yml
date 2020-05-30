@@ -1,0 +1,20 @@
+apache-php:
+    container_name: apache-php
+    build: ./servidorweb
+    ports:
+     - "80:80"
+     - "443:443"
+    volumes:
+     - ./servidorweb/var/www:/var/www
+    links:
+        - mysql-db 
+
+mysql-db:
+    container_name: mysql-db
+    image: mysql:5.7
+    ports:
+        - "3306:3306"
+    volumes:
+        - ./servidorweb/var/lib/mysql:/var/lib/mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=root

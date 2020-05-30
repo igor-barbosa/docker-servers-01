@@ -1,0 +1,7 @@
+#apache files
+var/www/html/*
+!var/www/html/.gitkeep
+
+#mysql files
+var/lib/mysql/*
+!var/lib/mysql/.gitkeep
